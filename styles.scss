@@ -1,17 +1,88 @@
 /*-- scss:defaults --*/
 
-@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap';
+$primary: #0066A5;
+$secondary: #00A1F4;
+$success: #8ACE83;
+$danger: #D85427;
+$warning: #FFB945;
+$info: #76D6F8;
+$dark: #333333;
+$light: #f5f5f5;
 
-$font-family: "Roboto", sans-serif;
-$font-family-serif: "Roboto", sans-serif;
+// Typography
+$font-family-sans-serif: "Calibri", "Arial", "Helvetica", sans-serif;
+$font-family-monospace: "Consolas", "Courier New", monospace;
+$font-size-root: 11pt;
+$headings-color: $primary;
+$headings-font-weight: 600;
+
+// layout
+$body-color: #333333;
+$link-color: $primary;
+$border-color: #e0e0e0;
 
 /*-- scss:rules --*/
-kbd,
-.kbd {
-    background-color: #f6f5f5 !important;
+
+// Title block
+.quarto-title {
+    border-bottom: 2bx solid $primary;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.navbar {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+.quarto-title h1{
+    color: $primary;
+    font-size: 18pt;
+}
+
+// Tables
+.table {
+    font-size: 10pt;
+
+    thread th {
+        background-color: $light;
+        border-bottom: 2px solid $primary;
+        font-weight: bold;
+        color: $dark;
+        padding: 6px 10px;
+    }
+
+    tbody td {
+        padding: 4px 10px;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+// Figures
+.quarto-figure {
+    margin: 1rem 0;
+
+    figcaption {
+        font-size: 9pt;
+        color: #666666;
+        font-style: italic;
+    }
+}
+
+// Code block (when shown)
+pre.sourceCode {
+    font-size: 9pt;
+    background-color: #f8f8f8;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+// TOC styling
+.sidebar nav[role="doc-toc"] {
+    font-size: 10pt;
+}
+
+// Footer
+.quarto-footer {
+    font-size: 9pt;
+    color: #999999;
+    border-top: 1px solid $border-color;
+    padding-top: 1rem;
+    margin-top: 2rem;
 }

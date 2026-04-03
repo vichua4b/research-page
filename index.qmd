@@ -1,5 +1,4 @@
 ---
-title: Quarto Template
+title: Quant research notebooks
 ---
 
-Quarto template Text!

@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Quarto Template"
+  title: "Quant research notebooks"
   navbar:
     right:
       - href: index.qmd
@@ -15,12 +15,34 @@ website:
 format:
   html:
     theme:
-      light: [litera, styles.scss]
-    highlight-style: a11y-dark
-    mainfont: "Roboto"
-    code-copy: true
-    code-overflow: wrap
-
+      - cosmo
+      - styles.scss
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    code-fold: true
+    code-summary: "Show code"
+    code-tools: true
+    number-sections: false
+    self-contained: true
+    fig-width: 10
+    fig-height: 6
+    fig-dpi: 150
+    df-print: kable
+    page-layout: article
+    mainfont: "Calibri, Arial, Helvetica, sans-serif"
+    monofont: "Consolas, Courier New, Monospace"
+    fontsize: "11pt"
 
 execute:
+  enabled: true
+  echo: false
+  warning: false
+  error: false
   freeze: auto
+
+# Metadata
+metadata:
+  author: "Vivian Chua"
+  date: today
+  date-format: "D MMM YYYY"
