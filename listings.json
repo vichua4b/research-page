@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/macro_distance_model.html",
       "/posts/visualisation.html",
       "/posts/welcome.html"
     ]
