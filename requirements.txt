@@ -1,0 +1,10 @@
+ipykernel
+pandas
+plotly
+polars
+nbformat
+numpy
+requests
+scipy
+seaborn
+yfinance
