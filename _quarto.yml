@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Quant research notebooks"
+  title: "Signals & Noise"
   navbar:
     right:
       - href: index.qmd

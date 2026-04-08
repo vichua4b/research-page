@@ -32,7 +32,7 @@ $border-color: #e0e0e0;
 
 .quarto-title h1{
     color: $primary;
-    font-size: 18pt;
+    font-size: 16pt;
 }
 
 // Tables
@@ -85,4 +85,15 @@ pre.sourceCode {
     border-top: 1px solid $border-color;
     padding-top: 1rem;
     margin-top: 2rem;
+}
+
+.quarto-post {
+    font-size: 11pt;
+    border-bottom: 2px solid $primary;
+}
+
+.listing-description {
+    font-size: 10pt;
+    color: #666666;
+    font-style: italic;
 }

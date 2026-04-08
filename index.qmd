@@ -1,5 +1,5 @@
 ---
-title: Quant research notebooks
+title: Signals & Noise
 listing:
   contents: posts
   sort: "date desc"
