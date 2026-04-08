@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vichua4b.github.io/research-page/posts/welcome.html</loc>
-    <lastmod>2026-04-03T11:09:34.364Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vichua4b.github.io/research-page/blog.html</loc>
-    <lastmod>2026-04-03T11:09:34.363Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vichua4b.github.io/research-page/index.html</loc>
-    <lastmod>2026-04-03T11:09:34.363Z</lastmod>
+    <loc>https://vichua4b.github.io/research-page/posts/macro_distance_model_sector.html</loc>
+    <lastmod>2026-04-08T07:51:49.807Z</lastmod>
   </url>
   <url>
     <loc>https://vichua4b.github.io/research-page/posts/macro_distance_model.html</loc>
-    <lastmod>2026-04-03T11:10:46.950Z</lastmod>
+    <lastmod>2026-04-08T07:51:25.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vichua4b.github.io/research-page/index.html</loc>
+    <lastmod>2026-04-08T07:50:04.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vichua4b.github.io/research-page/blog.html</loc>
+    <lastmod>2026-04-08T07:50:04.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vichua4b.github.io/research-page/posts/welcome.html</loc>
+    <lastmod>2026-04-08T07:50:04.100Z</lastmod>
   </url>
 </urlset>

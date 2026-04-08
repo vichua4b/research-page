@@ -1,45 +1,94 @@
 [
   {
-    "objectID": "posts/welcome.html",
-    "href": "posts/welcome.html",
-    "title": "Welcome",
+    "objectID": "posts/macro_distance_model_sector.html",
+    "href": "posts/macro_distance_model_sector.html",
+    "title": "Macro Distance Model for Sector Rotation",
     "section": "",
-    "text": "Welcome\nHello world, this is my first blog post.\nI can write in markdown\nprint(\"Hello World\")\nI can also write math equations:\n\\[\ny = x^2\n\\]\nI can create lists easily:\n\nOne\nTwo\n\nI can also create numbered lists:\n\nOne\nTwo\n\nOr, create a table:\n\n\n\nName\nAge\n\n\n\n\nAlice\n20\n\n\nBob\n21"
+    "text": "Replication and extension of Man Group’s regime-based similarity model"
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Quarto Blog",
-    "section": "",
-    "text": "Macro Distance Model for Factor Timing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome\n\n\nWelcome Post\n\n\n\n\n\n14 Feb 2025\n\n\nNipun Batra\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/macro_distance_model_sector.html#methodology",
+    "href": "posts/macro_distance_model_sector.html#methodology",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "Methodology",
+    "text": "Methodology\n\n7 financial state variables (oil, copper, vix, yield curve, monetary policy, market, stock-bond correlation)\nNormalise each variable via rolling z-score (10-year window), winsorised at +/-3\nEuclidean distance between current month and all historical months\nExclude last 36 months from similarity calculation to avioid momentum loading\nForecast factor returns using similarity-weighted historical averages\nBacktest against Fama-French 6 factors + Momentum\n\n\nSector Universe\n\n\n\nETF\nSector / Industry Group\n\n\n\n\nXLK\nTechnology\n\n\nXLF\nFinancials\n\n\nXLV\nHealth Care\n\n\nXLY\nConsumer Discretionary\n\n\nXLP\nConsumer Staples\n\n\nXLE\nEnergy\n\n\nXLI\nIndustrials\n\n\nXLB\nMaterials\n\n\nXLU\nUtilities\n\n\nXLRE\nReal Estate\n\n\nXLC\nCommunication Services\n\n\nXBI\nBiotech\n\n\nXHB\nHomebuilders\n\n\nXOP\nOil & Gas E&P\n\n\nSMH\nSemiconductors\n\n\nGLD\nGold\n\n\nTLT\nLT Bond\n\n\n\n\nThis version forecasts long-only sector excess returns (vs equal-weighted benchmark), producing a sector rotation signal rather than a factor tilt signal."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Quant research notebooks",
-    "section": "",
-    "text": "Macro Distance Model for Factor Timing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome\n\n\nWelcome Post\n\n\n\n\n\n14 Feb 2025\n\n\nNipun Batra\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/macro_distance_model_sector.html#load-state-variables",
+    "href": "posts/macro_distance_model_sector.html#load-state-variables",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "1. Load State Variables",
+    "text": "1. Load State Variables\nSource the 7 financial indicators from public data. All variables are converted to 12-month changes.\n\n\n\nVariables\nSource\nTicker\n\n\n\n\nOil price\nYahoo Finance\nBZ=F\n\n\nCopper price\nYahoo Finance\nHG=F\n\n\nUS equity vol\nYahoo Finance\n^VIX\n\n\nYield curve\n10Y yield minus 3m yield\nderived\n\n\nMonetary policy\n3m yield\n^IRX\n\n\nMarket\nS&P 500\n^SPX\n\n\nStock bond correlation\nrolling 12M corr(S&P 500, -10Y)\nderived\n\n\n\n\n\nConfiguration loaded\nDistance config:  {'norm_window': 120, 'winsorize_limit': 3.0, 'exclusion_window': 36, 'min_periods': 24}\n\n\n\n\nDownloading from Yahoo Finance data...\n\nDownloading FRED data...\n\nLoaded 8 series: ['oil', 'copper', 'vix', 'us_10y', 'us_3m', 'spx', 'credit_spread', 'cpi']\n\n\n\n\nReal rate derived: 199 months\nYield curve derived: 214 months\nDate range: 2008-07-31 to 2026-04-30\nSummary:\n  oil            : n= 214, mean=  0.0509, std=  0.3882, min= -0.6675, max=  1.7942\n  copper         : n= 214, mean=  0.0597, std=  0.2981, min= -0.6038, max=  1.3853\n  vix            : n= 214, mean=  0.0850, std=  0.5141, min= -0.6377, max=  2.9052\n  spx            : n= 214, mean=  0.1037, std=  0.1630, min= -0.4476, max=  0.5371\n  credit_spread  : n= 214, mean= -0.0816, std=  1.3601, min= -5.3600, max=  5.3900\n  us_10y         : n= 214, mean=  0.0082, std=  0.8540, min= -1.8870, max=  2.5200\n  us_3m          : n= 214, mean=  0.0632, std=  1.2895, min= -3.3850, max=  4.4220\n  real_rates     : n= 199, mean= -0.0152, std=  2.2592, min= -5.8885, max=  6.9783\n  yield_curve    : n= 214, mean= -0.0549, std=  0.9728, min= -3.5500, max=  2.8800\n  stock_bond_corr: n= 202, mean=  0.0134, std=  0.4174, min= -1.1477, max=  1.0351"
+  },
+  {
+    "objectID": "posts/macro_distance_model_sector.html#load-sector-industry-group-etf-returns",
+    "href": "posts/macro_distance_model_sector.html#load-sector-industry-group-etf-returns",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "2. Load Sector & Industry Group ETF Returns",
+    "text": "2. Load Sector & Industry Group ETF Returns\nDownload monthly total returns for sector/industry ETF from Yahoo Finance. ETFs with shorter histories are included where available.\n\n\nDownloading sector/industry ETF prices...\n  XLK   (Technology          ): from 1999-01-31, 328 months\n  XLF   (Financials          ): from 1999-01-31, 328 months\n  XLV   (Health Care         ): from 1999-01-31, 328 months\n  XLY   (Consumer Disc.      ): from 1999-01-31, 328 months\n  XLP   (Consumer Staples    ): from 1999-01-31, 328 months\n  XLE   (Energy              ): from 1999-01-31, 328 months\n  XLI   (Industrials         ): from 1999-01-31, 328 months\n  XLB   (Materials           ): from 1999-01-31, 328 months\n  XLU   (Utilities           ): from 1999-01-31, 328 months\n  XLRE  (Real Estate         ): from 2015-10-31, 127 months\n  XLC   (Comm. Services      ): from 2018-06-30, 95 months\n  GLD   (Gold                ): from 2004-11-30, 258 months\n  TLT   (LT Bond             ): from 2002-07-31, 286 months\n\nDownloading SPY...\n\nSector return matrix: (328, 13)\nDate range: 1999-01-31 to 2026-04-30\n\nSector ETF Summary:\n ETF           Sector   Start  Months  Ann. Ret (%)  Ann. Vol (%)  Sharpe\n GLD             Gold 2004-12     257       12.0300       17.0500  0.7100\n XLC   Comm. Services 2018-07      94       13.2100       19.0300  0.6900\n XLV      Health Care 1999-02     327        8.6700       14.2100  0.6100\n XLP Consumer Staples 1999-02     327        7.2200       12.5100  0.5800\n XLU        Utilities 1999-02     327        8.8300       15.2000  0.5800\n XLI      Industrials 1999-02     327       10.5600       18.6900  0.5600\n XLY   Consumer Disc. 1999-02     327       10.5400       19.1800  0.5500\n XLB        Materials 1999-02     327       10.1000       20.8300  0.4900\n XLK       Technology 1999-02     327       10.9600       22.5200  0.4900\n XLE           Energy 1999-02     327       12.0200       24.9900  0.4800\nXLRE      Real Estate 2015-11     126        7.7500       17.0000  0.4600\n XLF       Financials 1999-02     327        7.6700       21.0000  0.3700\n TLT          LT Bond 2002-08     285        4.5300       13.5200  0.3300"
+  },
+  {
+    "objectID": "posts/macro_distance_model_sector.html#compute-excess-returns",
+    "href": "posts/macro_distance_model_sector.html#compute-excess-returns",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "3. Compute Excess Returns",
+    "text": "3. Compute Excess Returns\nFor sector rotation, the relevant signal is excess return vs the equal-weighted sector benchmark. E.g. A sector that returns 5% when the average sector returns 8% underperformed.\nWe compute: \\[r^{xs}_{i,t} = r_{i,t} - \\bar{r}_t\\]\nwhere \\(\\bar{r}_t\\) is the cross-sectional mean return across all available sectors at time \\(t\\).\n\n\nMean absolute row sum: 0.000000\n\nCommon date range: 2008-07-31 to 2026-04-30\nCommon months: 214\n\nState variables retained: 11:\n   oil            : 1.0 obs, 0.0% missing\n   copper         : 1.0 obs, 0.0% missing\n   vix            : 1.0 obs, 0.0% missing\n   spx            : 1.0 obs, 0.0% missing\n   credit_spread  : 1.0 obs, 0.0% missing\n   us_10y         : 1.0 obs, 0.0% missing\n   us_3m          : 1.0 obs, 0.0% missing\n   real_rates     : 0.9299065420560748 obs, 7.0% missing\n   yield_curve    : 1.0 obs, 0.0% missing\n   stock_bond_corr: 0.9439252336448598 obs, 5.6% missing\n   dispersion     : 1.0 obs, 0.0% missing\n\nForward fill missing (up to 3 months)..."
+  },
+  {
+    "objectID": "posts/macro_distance_model_sector.html#fit-distance-model",
+    "href": "posts/macro_distance_model_sector.html#fit-distance-model",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "3. Fit Distance Model",
+    "text": "3. Fit Distance Model\nImplement regime similarity model: - Rolling 10 year z-score normalization (min 2 year) - Winsorisation at +/-3 - 36 month exclusion window - Euclidean distance metric - Similarity weights = 1 - d/d_max, then squared to emphsise closest match - NaN imputed with cumulative column means\n\n\nDistance model fitted: 153 valid periods out of 214\nVariables: ['oil', 'copper', 'vix', 'yield_curve', 'spx', 'stock_bond_corr', 'us_3m']"
+  },
+  {
+    "objectID": "posts/macro_distance_model_sector.html#similarity-analysis",
+    "href": "posts/macro_distance_model_sector.html#similarity-analysis",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "4. Similarity Analysis",
+    "text": "4. Similarity Analysis\nExamine the similarity weights to understand which historical periods are most similar to recent conditions\n\n\n                                                    \n\n\n\nTop 10 most similar historical periods to 2026-04\n   2022-03: 0.01\n   2014-06: 0.01\n   2016-12: 0.01\n   2016-11: 0.01\n   2011-06: 0.01\n   2017-02: 0.01\n   2014-05: 0.01\n   2017-01: 0.01\n   2011-07: 0.01\n   2017-03: 0.01"
+  },
+  {
+    "objectID": "posts/macro_distance_model_sector.html#sector-rotation-backtest",
+    "href": "posts/macro_distance_model_sector.html#sector-rotation-backtest",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "5. Sector Rotation Backtest",
+    "text": "5. Sector Rotation Backtest\nThree approaches 1. Top-K rotation: Each month, overweight the K sectors with the highest similarity-weighted forecast excess return, equal-weight the rest at zero. Pure long-only rotation. 2. Long-short rotation: Long top K, short bottom K sectors (dollar neutral). 3. Continuous weights: Use similarity-weighted average returns to forecast, then scale by forecast variability\n\n\nSector forecasts generated: (153, 13)\nDate range: 2013-08-31 to 2026-04-30\n\nLatest forecast (2026-04):\n   XLK   (Technology      ): +0.60%\n   XLV   (Health Care     ): +0.37%\n   XLY   (Consumer Disc.  ): +0.32%\n   XLE   (Energy          ): +0.28%\n   XLI   (Industrials     ): +0.23%\n   XLF   (Financials      ): +0.21%\n   XLB   (Materials       ): +0.09%\n   XLU   (Utilities       ): +0.06%\n   XLP   (Consumer Staples): -0.01%\n   XLRE  (Real Estate     ): -0.25%\n   XLC   (Comm. Services  ): -0.78%\n   GLD   (Gold            ): -0.85%\n   TLT   (LT Bond         ): -0.99%\n\n\n\n\nSector Rotation Performance (from 2013-09):\n                 Strategy  Ann. Return (%)  Ann. Vol (%)  Sharpe  Hit Rate  Max DD (%)  Months\n             SPY (market)           0.1381        0.1428  0.9667    0.6974     -0.2538     152\n      Equal Weight Sector           0.1125        0.1212  0.9277    0.6842     -0.1912     152\n           Top-5 Rotation           0.1186        0.1283  0.9242    0.6776     -0.2600     152\nLong Short (Top/Bottom 5)           0.0074        0.0993  0.0742    0.4934     -0.1739     152\n          Continuous Tilt           0.1203        0.1208  0.9960    0.6974     -0.2080     152\n        Continuous Weight           0.1154        0.1283  0.8993    0.6776     -0.2956     152"
+  },
+  {
+    "objectID": "posts/macro_distance_model_sector.html#per-sector-timing-analysis",
+    "href": "posts/macro_distance_model_sector.html#per-sector-timing-analysis",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "6. Per Sector Timing Analysis",
+    "text": "6. Per Sector Timing Analysis\nExamine which individual sectors benefit most from the timing signal\n\n\nPer Sector Forecast Quality:\n ETF           Sector  IC (Spearman)  Directional Accuracy  Static Sharpe  Months\n XLC   Comm. Services         0.3850                0.5360         0.1170      56\n XLF       Financials         0.0440                0.4740         0.0100     152\n GLD             Gold         0.0390                0.5200        -0.0170     152\n XLP Consumer Staples         0.0290                0.4930        -0.0900     152\n XLE           Energy         0.0290                0.4610        -0.0980     152\n XLB        Materials         0.0270                0.5070        -0.1160     152\n TLT          LT Bond        -0.0130                0.5660        -0.3650     152\n XLU        Utilities        -0.0320                0.5070        -0.1020     152\n XLK       Technology        -0.0380                0.5390         0.5970     152\n XLI      Industrials        -0.0390                0.5070         0.2430     152\n XLY   Consumer Disc.        -0.0640                0.5260         0.3750     152\nXLRE      Real Estate        -0.1080                0.5450        -0.4090      88\n XLV      Health Care        -0.1430                0.4210         0.1170     152\n\nAverage IC: 0.009\nAverage directional accuracy: 0.508"
+  },
+  {
+    "objectID": "posts/macro_distance_model_sector.html#state-variable-cross-correlations",
+    "href": "posts/macro_distance_model_sector.html#state-variable-cross-correlations",
+    "title": "Macro Distance Model for Sector Rotation",
+    "section": "7. State Variable Cross Correlations",
+    "text": "7. State Variable Cross Correlations\nVerify that the state variables provide independent information\n\n\n                                                    \n\n\n\nAverage absolute cross correlation: 0.30\n\n\n\n8. Current Regime Sector Allocation\nModel’s current recommended sector allocation\n\n\nCurrent Sector Allocation - 2026-04\n======================================================================\n ETF           Sector  Forecast XS (bps)  Model Weight (%)  EW Weight (%)  Active Tilt (%)\n XLK       Technology            60.1000           12.6000         7.7000           4.9000\n XLV      Health Care            37.4000           10.9000         7.7000           3.2000\n XLY   Consumer Disc.            32.5000           10.5000         7.7000           2.9000\n XLE           Energy            28.4000           10.2000         7.7000           2.5000\n XLI      Industrials            22.8000            9.8000         7.7000           2.1000\n XLF       Financials            21.1000            9.7000         7.7000           2.0000\n XLB        Materials             9.0000            8.8000         7.7000           1.1000\n XLU        Utilities             6.4000            8.6000         7.7000           0.9000\n XLP Consumer Staples            -0.6000            8.1000         7.7000           0.4000\nXLRE      Real Estate           -25.1000            6.2000         7.7000          -1.5000\n XLC   Comm. Services           -77.5000            2.3000         7.7000          -5.4000\n GLD             Gold           -85.0000            1.7000         7.7000          -6.0000\n TLT          LT Bond           -99.0000            0.6000         7.7000          -7.1000\n\n Top 5 overweights: XLK, XLV, XLY, XLE, XLI\nTop 5 upderweights: XLP, XLRE, XLC, GLD, TLT"
   },
   {
     "objectID": "posts/macro_distance_model.html",
     "href": "posts/macro_distance_model.html",
     "title": "Macro Distance Model for Factor Timing",
     "section": "",
-    "text": "Replication and extension of [Man Group’s remime-based similarity model]"
+    "text": "Replication and extension of Man Group’s regime-based similarity model"
   },
   {
     "objectID": "posts/macro_distance_model.html#methodology",
     "href": "posts/macro_distance_model.html#methodology",
     "title": "Macro Distance Model for Factor Timing",
     "section": "Methodology",
-    "text": "Methodology\n\n7 financial state variables (oil, copper, vix, rate)\nNormalise each variable via rolling z-score (10-year window), winsorised at +/-3\nEuclidean distance between current month and all historical months\nExclude last 36 months from similarity calculation to avioid momentum loading\nForecast factor returns using similarity-weighted historical averages\nBacktest against Fama-French 6 factors + Momentum\n\n\nMan group benchmark\n\nQ1-Q5 spread portfolio sharpe: 0.82\nCorrelation to static long-only: 0.37"
+    "text": "Methodology\n\n7 financial state variables (oil, copper, vix, yield curve, monetary policy, market, stock-bond correlation)\nNormalise each variable via rolling z-score (10-year window), winsorised at +/-3\nEuclidean distance between current month and all historical months\nExclude last 36 months from similarity calculation to avioid momentum loading\nForecast factor returns using similarity-weighted historical averages\nBacktest against Fama-French 6 factors + Momentum\n\n\nMan group benchmark\n\nQ1-Q5 spread portfolio sharpe: 0.82\nCorrelation to static long-only: 0.37"
   },
   {
     "objectID": "posts/macro_distance_model.html#load-state-variables",
     "href": "posts/macro_distance_model.html#load-state-variables",
     "title": "Macro Distance Model for Factor Timing",
     "section": "1. Load State Variables",
-    "text": "1. Load State Variables\nSource the 7 financial indicators from public data. All variables are converted to 12-month changes.\nOil price | Yahoo Finance | BZ=F |\nCopper price | Yahoo Finance | HG=F |\n\n\nConfiguration loaded\nDistance config:  {'norm_window': 120, 'winsorize_limit': 3.0, 'exclusion_window': 36, 'min_periods': 24}\n\n\n\n\nDownloading from Yahoo Finance data...\n\nDownloading FRED data...\n\nLoaded 6 series: ['oil', 'copper', 'vix', 'us_10y', 'credit_spread', 'cpi']\n\n\n\n\nDate\n2019-04-22   1.2300\n2019-04-23   1.1900\n2019-04-24   1.1900\n2019-04-25   1.1500\n2019-04-26   1.1500\nName: TNX, dtype: float64\n\n\n\n\n\nLoading equity dispersion proxy...\n   Dispersion proxy: 1196 months\nReal rate derived: 0 months\nDate range: 2007-07-31 to 2026-04-30\nSummary:\n  oil            : n= 214, mean=  0.0520, std=  0.3897, min= -0.6675, max=  1.7942\n  copper         : n= 214, mean=  0.0595, std=  0.2980, min= -0.6038, max=  1.3853\n  vix            : n= 214, mean=  0.0856, std=  0.5139, min= -0.6377, max=  2.9052\n  credit_spread  : n= 214, mean= -0.0815, std=  1.3601, min= -5.3600, max=  5.3900\n  us_10y         : n=   0, mean=     nan, std=     nan, min=     nan, max=     nan\n  dispersion     : n= 224, mean=  0.0012, std=  0.0260, min= -0.1046, max=  0.0947\n  real_rates     : n=   0, mean=     nan, std=     nan, min=     nan, max=     nan"
+    "text": "1. Load State Variables\nSource the 7 financial indicators from public data. All variables are converted to 12-month changes.\n\n\n\nVariables\nSource\nTicker\n\n\n\n\nOil price\nYahoo Finance\nBZ=F\n\n\nCopper price\nYahoo Finance\nHG=F\n\n\nUS equity vol\nYahoo Finance\n^VIX\n\n\nYield curve\n10Y yield minus 3m yield\nderived\n\n\nMonetary policy\n3m yield\n^IRX\n\n\nMarket\nS&P 500\n^SPX\n\n\nStock bond correlation\nrolling 12M corr(S&P 500, -10Y)\nderived\n\n\n\n\n\nConfiguration loaded\nDistance config:  {'norm_window': 120, 'winsorize_limit': 3.0, 'exclusion_window': 36, 'min_periods': 24}\n\n\n\n\nDownloading from Yahoo Finance data...\n\nDownloading FRED data...\n\nLoaded 8 series: ['oil', 'copper', 'vix', 'us_10y', 'us_3m', 'spx', 'credit_spread', 'cpi']\n\n\n\n\n\nLoading equity dispersion proxy...\n   Dispersion proxy: 1196 months\nReal rate derived: 199 months\nYield curve derived: 214 months\nDate range: 2007-07-31 to 2026-04-30\nSummary:\n  oil            : n= 214, mean=  0.0509, std=  0.3882, min= -0.6675, max=  1.7942\n  copper         : n= 214, mean=  0.0597, std=  0.2981, min= -0.6038, max=  1.3853\n  vix            : n= 214, mean=  0.0850, std=  0.5141, min= -0.6377, max=  2.9052\n  spx            : n= 214, mean=  0.1037, std=  0.1630, min= -0.4476, max=  0.5371\n  credit_spread  : n= 214, mean= -0.0816, std=  1.3601, min= -5.3600, max=  5.3900\n  us_10y         : n= 214, mean=  0.0082, std=  0.8540, min= -1.8870, max=  2.5200\n  us_3m          : n= 214, mean=  0.0632, std=  1.2895, min= -3.3850, max=  4.4220\n  dispersion     : n= 224, mean=  0.0012, std=  0.0260, min= -0.1046, max=  0.0947\n  real_rates     : n= 199, mean= -0.0152, std=  2.2592, min= -5.8885, max=  6.9783\n  yield_curve    : n= 214, mean= -0.0549, std=  0.9728, min= -3.5500, max=  2.8800\n  stock_bond_corr: n= 202, mean=  0.0134, std=  0.4174, min= -1.1477, max=  1.0351"
   },
   {
     "objectID": "posts/macro_distance_model.html#load-factor-returns",
@@ -53,34 +102,55 @@
     "href": "posts/macro_distance_model.html#fit-distance-model",
     "title": "Macro Distance Model for Factor Timing",
     "section": "3. Fit Distance Model",
-    "text": "3. Fit Distance Model\nImplement regime similarity model: - Rolling 10 year z-score normalization (min 2 year) - Winsorisation at +/-3 - 36 month exclusion window - Euclidean distance metric - Similarity weights = inverse of distance, normalised to sum to 1\n\n\nCommon date range: 2007-07-31 to 2026-02-28\nCommon months #: 224\n\n Dropped variables (&gt;50% missing): ['us_10y', 'real_rates']\n\nState variables retained: 5:\n   oil            : 0.9464285714285714 obs, 5.4% missing\n   copper         : 0.9464285714285714 obs, 5.4% missing\n   vix            : 0.9464285714285714 obs, 5.4% missing\n   credit_spread  : 0.9464285714285714 obs, 5.4% missing\n   dispersion     : 1.0 obs, 0.0% missing\n\nForward fill missing (up to 3 months)...\n\n\n\n\nDistance model fitted: 152 valid periods out of 224\nVariables: ['oil', 'copper', 'vix', 'credit_spread', 'dispersion']"
+    "text": "3. Fit Distance Model\nImplement regime similarity model: - Rolling 10 year z-score normalization (min 2 year) - Winsorisation at +/-3 - 36 month exclusion window - Euclidean distance metric - Similarity weights = inverse of distance, normalised to sum to 1\n\n\nCommon date range: 2007-07-31 to 2026-02-28\nCommon months #: 224\n\nState variables retained: 11:\n   oil            : 0.9464285714285714 obs, 5.4% missing\n   copper         : 0.9464285714285714 obs, 5.4% missing\n   vix            : 0.9464285714285714 obs, 5.4% missing\n   spx            : 0.9464285714285714 obs, 5.4% missing\n   credit_spread  : 0.9464285714285714 obs, 5.4% missing\n   us_10y         : 0.9464285714285714 obs, 5.4% missing\n   us_3m          : 0.9464285714285714 obs, 5.4% missing\n   dispersion     : 1.0 obs, 0.0% missing\n   real_rates     : 0.8883928571428571 obs, 11.2% missing\n   yield_curve    : 0.9464285714285714 obs, 5.4% missing\n   stock_bond_corr: 0.8928571428571429 obs, 10.7% missing\n\nForward fill missing (up to 3 months)...\n\n\n\n\nDistance model fitted: 152 valid periods out of 224\nVariables: ['oil', 'copper', 'vix', 'yield_curve', 'spx', 'stock_bond_corr', 'us_3m']"
   },
   {
     "objectID": "posts/macro_distance_model.html#similarity-analysis",
     "href": "posts/macro_distance_model.html#similarity-analysis",
     "title": "Macro Distance Model for Factor Timing",
     "section": "4. Similarity Analysis",
-    "text": "4. Similarity Analysis\nExamine the similarity weights to understand which historical periods are most similar to recent conditions\n\n\n                                                    \n\n\n\nTop 10 most similar historical periods to 2026-02\n   2017-04: 1.00\n   2017-06: 0.99\n   2017-07: 0.97\n   2017-11: 0.93\n   2010-07: 0.92\n   2013-01: 0.88\n   2014-05: 0.88\n   2013-10: 0.87\n   2016-07: 0.87\n   2017-08: 0.87"
+    "text": "4. Similarity Analysis\nExamine the similarity weights to understand which historical periods are most similar to recent conditions\n\n\n                                                    \n\n\n\nTop 10 most similar historical periods to 2026-02\n   2014-06: 1.00\n   2011-04: 1.00\n   2014-10: 0.99\n   2011-03: 0.99\n   2011-02: 0.99\n   2011-01: 0.97\n   2014-07: 0.97\n   2014-09: 0.97\n   2010-11: 0.97\n   2011-05: 0.97"
   },
   {
     "objectID": "posts/macro_distance_model.html#factor-timing-backtest",
     "href": "posts/macro_distance_model.html#factor-timing-backtest",
     "title": "Macro Distance Model for Factor Timing",
     "section": "5. Factor Timing Backtest",
-    "text": "5. Factor Timing Backtest\nTwo approaches 1. Continuous weights: Use similarity-weighted average returns to forecast, then scale by forecast variability 2. Quintile approach: Classify historical dates into quintiles by similarity, go long factors with positive avg return in Q1, short if negative\n\n\nContinuous timing weights:\n  Shape: (224, 6)\n  First valid: 2014-06-30\n  Last valid: 2026-02-28\n\nLatest weights:\nMarket        6.0671\nMomentum      3.8112\nQuality       2.8304\nInvestment    0.9439\nSize          0.0799\nValue        -2.0614\n\n\n\n\nQuintile signals:\n   Valid months: 131\n\nSignal summary (latest month)\n\nBinary:\nMarket        1.0000\nSize         -1.0000\nValue        -1.0000\nQuality       1.0000\nInvestment   -1.0000\nMomentum      1.0000\n\nDynamic:\nMarket        0.5234\nSize         -0.0504\nValue        -0.1679\nQuality       0.1276\nInvestment   -0.0763\nMomentum      0.0545\n\n\n\n\nPortfolio Performance:\n         Strategy  Ann. Return (%)  Ann. Vol (%)  Sharpe  Hit Rate  Max DD (%)  Months\n Static long only           0.0257        0.0447  0.5747    0.5923     -0.1063     130\nContinuous Timing           0.2611        0.5097  0.5122    0.6154     -1.0243     130\n  Quintile Timing          -0.0096        0.0540 -0.1786    0.5308     -0.2139     130"
+    "text": "5. Factor Timing Backtest\nTwo approaches 1. Continuous weights: Use similarity-weighted average returns to forecast, then scale by forecast variability 2. Quintile approach: Classify historical dates into quintiles by similarity, go long factors with positive avg return in Q1, short if negative\n\n\nContinuous timing weights:\n  Shape: (224, 6)\n  First valid: 2014-06-30\n  Last valid: 2026-02-28\n\nLatest weights:\nMarket        6.2515\nQuality       4.3130\nMomentum      3.8741\nInvestment    1.2410\nSize          0.1284\nValue        -3.3866\n\n\n\n\nQuintile signals:\n   Valid months: 131\n\nSignal summary (latest month)\n\nBinary:\nMarket        1.0000\nSize          1.0000\nValue        -1.0000\nQuality      -1.0000\nInvestment    1.0000\nMomentum      1.0000\n\nDynamic:\nMarket        0.5662\nSize          0.0639\nValue        -0.2179\nQuality      -0.0504\nInvestment    0.0231\nMomentum      0.0785\n\n\n\n\nPortfolio Performance:\n         Strategy  Ann. Return (%)  Ann. Vol (%)  Sharpe  Hit Rate  Max DD (%)  Months\n Static long only           0.0257        0.0447  0.5747    0.5923     -0.1063     130\nContinuous Timing           0.3705        0.5749  0.6443    0.6462     -1.4100     130\n  Quintile Timing           0.0256        0.0514  0.4984    0.5846     -0.1287     130\n\n\n\n\n                                                    \n\n\n\n\n                                                    \n\n\n                                                    \n\n\n\nHow the model shift allocation across factors through different regimes"
   },
   {
     "objectID": "posts/macro_distance_model.html#per-factor-timing-analysis",
     "href": "posts/macro_distance_model.html#per-factor-timing-analysis",
     "title": "Macro Distance Model for Factor Timing",
     "section": "6. Per Factor Timing Analysis",
-    "text": "6. Per Factor Timing Analysis\nExamine which individual factors benefit most from the timing signal\n\n\nPer factor timing performance (Continuous):\n    Factor  Static Sharpe  Timed Sharpe  Improvement  Hit Rate  Months\n      Size        -0.2301        0.4090       0.6390    0.5290     140\n   Quality         0.4855        0.6074       0.1220    0.5790     140\nInvestment        -0.0812       -0.1123      -0.0310    0.4930     140\n     Value        -0.0918       -0.1437      -0.0520    0.5790     140\n  Momentum         0.2001        0.1341      -0.0660    0.5430     140\n    Market         0.7666        0.6106      -0.1560    0.6430     140"
+    "text": "6. Per Factor Timing Analysis\nExamine which individual factors benefit most from the timing signal\n\n\nPer factor timing performance (Continuous):\n    Factor  Static Sharpe  Timed Sharpe  Improvement  Hit Rate  Months\n      Size        -0.2301       -0.0700       0.1600    0.4710     140\nInvestment        -0.0812        0.0089       0.0900    0.5140     140\n     Value        -0.0918       -0.0581       0.0340    0.5790     140\n  Momentum         0.2001        0.1160      -0.0840    0.5360     140\n    Market         0.7666        0.6375      -0.1290    0.6570     140\n   Quality         0.4855        0.2868      -0.1990    0.6140     140"
   },
   {
     "objectID": "posts/macro_distance_model.html#state-variable-cross-correlations",
     "href": "posts/macro_distance_model.html#state-variable-cross-correlations",
     "title": "Macro Distance Model for Factor Timing",
     "section": "7. State Variable Cross Correlations",
-    "text": "7. State Variable Cross Correlations\nVerify that the state variables provide independent information\n\n\n                                                    \n\n\n\nAverage absolute cross correlation: 0.45"
+    "text": "7. State Variable Cross Correlations\nVerify that the state variables provide independent information\n\n\n                                                    \n\n\n\nAverage absolute cross correlation: 0.31"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Signals & Noise",
+    "section": "",
+    "text": "Macro Distance Model for Factor Timing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMacro Distance Model for Sector Rotation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome\n\n\n\n\n\n\n\n\n31 Mar 2026\n\n\nVivian Chua\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Quarto Blog",
+    "section": "",
+    "text": "Macro Distance Model for Factor Timing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMacro Distance Model for Sector Rotation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome\n\n\n\n\n\n\n\n\n31 Mar 2026\n\n\nVivian Chua\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome.html",
+    "href": "posts/welcome.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Hey there\nI’m Vivian - quant researcher by day, curious tinkerer by night\nI spend most of my time building systematic strategies and hunting for signals in noisy data. This is where I share the stuff I find interesting along the way - Research notebooks - Half-baked ideas - Occasional deep dive\nExpect a mix of: - Factor research and alpha ideas - Playing with alternative data - Things that made me go hmm that’s weird\nNothing here is investment advice - just me poking at data and seeing what falls out."
   }
 ]
